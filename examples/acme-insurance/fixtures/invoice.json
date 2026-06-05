@@ -1,0 +1,40 @@
+{
+  "DATA": {
+    "locale": "de-DE",
+    "brand": {
+      "name": "Acme Insurance AG",
+      "tagline": "Protecting what matters since 1984"
+    },
+    "invoice": {
+      "number": "INV-2026-000423",
+      "date": "2026-05-18",
+      "dueDate": "2026-06-17",
+      "currency": "EUR"
+    },
+    "seller": {
+      "name": "Acme Insurance AG",
+      "addressLines": ["Hauptstrasse 12", "10115 Berlin", "Germany"],
+      "vatId": "DE123456789",
+      "iban": "DE89370400440532013000"
+    },
+    "customer": {
+      "name": "Globex GmbH",
+      "type": "B2B",
+      "region": "EU",
+      "vatId": "DE987654321",
+      "addressLines": ["Lindenallee 5", "20095 Hamburg", "Germany"]
+    },
+    "lineItems": [
+      { "description": "Commercial liability premium (annual)", "qty": 1, "unitPrice": 1840.0, "amount": 1840.0 },
+      { "description": "Cyber risk rider", "qty": 1, "unitPrice": 620.5, "amount": 620.5 },
+      { "description": "Fleet add-on (12 vehicles)", "qty": 12, "unitPrice": 47.25, "amount": 567.0 }
+    ],
+    "totals": {
+      "net": 3027.5,
+      "taxRate": 0.19,
+      "tax": 575.23,
+      "gross": 3602.73
+    },
+    "notes": "Thank you for your continued trust. Payment is due within 30 days."
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "lwTestCase": {
+    "title": "Near credit limit",
+    "description": "Statement with many transactions totalling close to the 500 EUR Verf\u00fcgungsrahmen. Tests long transaction list and low available credit display.",
+    "template": "statement",
+    "default": false
+  },
+  "dataSources": {
+    "DATA": {
+      "locale": "de-DE",
+      "currency": "EUR",
+
+      "issuer": {
+        "name": "Sparkasse Paderborn-Detmold",
+        "senderLine": "Sparkasse \u00b7 Postfach 24 60 \u00b7 33054 Paderborn",
+        "serviceLabel": "Allgemeine Fragen zum VISA Card-Service beantwortet Ihnen:",
+        "servicePhone": "+49 (0)89 411 116 - 336",
+        "serviceFax": "+49 (0)89 411 116 - 400",
+        "lostCardLabel": "Bei Kartenverlust w\u00e4hlen Sie bitte:",
+        "lostCardPhone": "+49 (0)89 411 116 - 446",
+        "disputeAddress": "BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau"
+      },
+
+      "recipient": {
+        "salutation": "Herrn",
+        "name": "Ilyas H\u00fcbner",
+        "careOf": "c/o Niklas Neschen",
+        "street": "M\u00fchlenstr. 6",
+        "zip": "33189",
+        "city": "Schlangen"
+      },
+
+      "statement": {
+        "number": "ABR-2023-07",
+        "issueDate": "2023-07-03",
+        "dueDate": "2023-07-03",
+        "periodStart": "2023-06-03",
+        "periodEnd": "2023-07-03",
+        "generatedAt": "2023-07-03T06:00:00Z",
+        "pastDue": false,
+        "title": "Juli 2023",
+        "page": "1",
+        "totalPages": "1"
+      },
+
+      "account": {
+        "holder": "Ilyas H\u00fcbner",
+        "cardBrand": "Visa",
+        "last4": "3958",
+        "cardNumber": "4273 92XX XXXX 3958",
+        "creditLimit": 500.00,
+        "availableCredit": 8.14,
+        "primaryAccount": "4273 92XX XXXX 3594"
+      },
+
+      "summary": {
+        "previousBalance": 0,
+        "payments": 0,
+        "credits": 0,
+        "purchases": 491.86,
+        "cashAdvances": 0,
+        "fees": 0,
+        "interest": 0,
+        "newBalance": 491.86,
+        "minimumPayment": 491.86
+      },
+
+      "rates": {
+        "purchaseApr": 0,
+        "cashApr": 0,
+        "penaltyApr": 0,
+        "daysInPeriod": 30
+      },
+
+      "rewards": {
+        "tier": "Standard",
+        "openingPoints": 0,
+        "earned": 0,
+        "redeemed": 0,
+        "closingPoints": 0
+      },
+
+      "transactions": [
+        {
+          "id": "TXN-201",
+          "transactionDate": "2023-06-05",
+          "postedDate": "2023-06-06",
+          "description": "REWE Filiale 8432, Paderborn",
+          "category": "Groceries",
+          "amount": 47.82,
+          "type": "purchase",
+          "reference": "TXN-201"
+        },
+        {
+          "id": "TXN-202",
+          "transactionDate": "2023-06-07",
+          "postedDate": "2023-06-08",
+          "description": "STAR Schlangen, Schlangen",
+          "category": "Fuel",
+          "amount": 72.15,
+          "type": "purchase",
+          "reference": "TXN-202"
+        },
+        {
+          "id": "TXN-203",
+          "transactionDate": "2023-06-09",
+          "postedDate": "2023-06-10",
+          "description": "dm-drogerie markt, Paderborn",
+          "category": "Shopping",
+          "amount": 23.49,
+          "type": "purchase",
+          "reference": "TXN-203"
+        },
+        {
+          "id": "TXN-204",
+          "transactionDate": "2023-06-11",
+          "postedDate": "2023-06-13",
+          "description": "Hornbach Baumarkt AG FIL., Bielefeld",
+          "category": "Shopping",
+          "amount": 134.90,
+          "type": "purchase",
+          "reference": "TXN-204"
+        },
+        {
+          "id": "TXN-205",
+          "transactionDate": "2023-06-14",
+          "postedDate": "2023-06-15",
+          "description": "ALDI S\u00dcD Filiale, Schlangen",
+          "category": "Groceries",
+          "amount": 31.20,
+          "type": "purchase",
+          "reference": "TXN-205"
+        },
+        {
+          "id": "TXN-206",
+          "transactionDate": "2023-06-16",
+          "postedDate": "2023-06-17",
+          "description": "Rosemeier GmbH, Horn-Bad Mein",
+          "category": "Other",
+          "amount": 45.00,
+          "type": "purchase",
+          "reference": "TXN-206"
+        },
+        {
+          "id": "TXN-207",
+          "transactionDate": "2023-06-19",
+          "postedDate": "2023-06-20",
+          "description": "toom BM Horn-Bad M, HORN-BAD MEIN",
+          "category": "Shopping",
+          "amount": 18.75,
+          "type": "purchase",
+          "reference": "TXN-207"
+        },
+        {
+          "id": "TXN-208",
+          "transactionDate": "2023-06-22",
+          "postedDate": "2023-06-23",
+          "description": "STADT PADERBORN ABFALLENT, Paderborn",
+          "category": "Utilities",
+          "amount": 4.00,
+          "type": "purchase",
+          "reference": "TXN-208"
+        },
+        {
+          "id": "TXN-209",
+          "transactionDate": "2023-06-25",
+          "postedDate": "2023-06-27",
+          "description": "STAR Schlangen, Schlangen",
+          "category": "Fuel",
+          "amount": 68.55,
+          "type": "purchase",
+          "reference": "TXN-209"
+        },
+        {
+          "id": "TXN-210",
+          "transactionDate": "2023-06-28",
+          "postedDate": "2023-06-29",
+          "description": "REWE Filiale 8432, Paderborn",
+          "category": "Groceries",
+          "amount": 46.00,
+          "type": "purchase",
+          "reference": "TXN-210"
+        }
+      ],
+
+      "fees": [],
+
+      "payment": {
+        "iban": "N/A",
+        "reference": "ABR-2023-07",
+        "autopay": true
+      },
+
+      "contact": {
+        "phone": "+49 (0)89 411 116 - 336",
+        "email": "kartenservice@sparkasse-paderborn-detmold.de",
+        "web": "https://www.sparkasse-paderborn-detmold.de"
+      },
+
+      "messages": [],
+
+      "legal": {
+        "verificationNote": "bitte pr\u00fcfen Sie diese Abrechnung auf ihre Richtigkeit. Etwaige Einwendungen m\u00fcssen unverz\u00fcglich beim BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau schriftlich mitgeteilt werden.",
+        "settlementNote": "Die Abrechnung erfolgt \u00fcber das Stammkonto NR. 4273 92XX XXXX 3594.",
+        "creditLimitNote": "Der monatliche Verf\u00fcgungsrahmen Ihrer VISA Card betr\u00e4gt 500 EUR.",
+        "feeHint": "\u00dcber Zinsen und Geb\u00fchren informieren auch der Preisaushang und das Preisverzeichnis in den Gesch\u00e4ftsstellen Ihres Kreditinstitutes."
+      }
+    }
+  }
+}

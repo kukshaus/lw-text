@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "name",
+    "description"
+  ],
+  "title": "DATA",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lw-text.dev/schemas/studio-test-1780605257650/DATA.json"
+}

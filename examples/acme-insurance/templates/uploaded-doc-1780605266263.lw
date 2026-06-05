@@ -1,0 +1,1 @@
+<template id="uploaded" version="1.0.0" data-sources="DATA"><p>{{ DATA.x }}</p></template>

@@ -1,0 +1,25 @@
+{
+  "name": "@lw-text/project",
+  "version": "0.1.0",
+  "description": "lw-text project loader, validator and compose/PDF orchestration",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": "./dist/index.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@lw-text/engine": "*",
+    "@lw-text/schema": "*",
+    "yaml": "^2.6.1"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.49.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

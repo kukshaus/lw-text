@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://acme.example/schemas/COMMON.schema.json",
+  "title": "COMMON",
+  "description": "Shared seller and legal fields reused across Acme document projects.",
+  "type": "object",
+  "required": ["seller"],
+  "properties": {
+    "seller": {
+      "type": "object",
+      "required": ["name", "vatId", "iban"],
+      "properties": {
+        "name": { "type": "string" },
+        "vatId": { "type": "string" },
+        "iban": { "type": "string", "format": "iban" },
+        "addressLines": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

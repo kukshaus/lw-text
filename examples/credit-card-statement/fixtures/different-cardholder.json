@@ -1,0 +1,126 @@
+{
+  "lwTestCase": {
+    "title": "Different cardholder (Frau)",
+    "description": "Female cardholder with 'Frau' salutation and no c/o line. Tests the conditional c/o field and a different recipient address layout.",
+    "template": "statement",
+    "default": false
+  },
+  "dataSources": {
+    "DATA": {
+      "locale": "de-DE",
+      "currency": "EUR",
+      "issuer": {
+        "name": "Sparkasse Paderborn-Detmold",
+        "senderLine": "Sparkasse · Postfach 24 60 · 33054 Paderborn",
+        "serviceLabel": "Allgemeine Fragen zum VISA Card-Service beantwortet Ihnen:",
+        "servicePhone": "+49 (0)89 411 116 - 336",
+        "serviceFax": "+49 (0)89 411 116 - 400",
+        "lostCardLabel": "Bei Kartenverlust wählen Sie bitte:",
+        "lostCardPhone": "+49 (0)89 411 116 - 446",
+        "disputeAddress": "BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau"
+      },
+      "recipient": {
+        "salutation": "Frau",
+        "name": "Petra Schneider",
+        "street": "Bahnhofstr. 22",
+        "zip": "33098",
+        "city": "Paderborn"
+      },
+      "statement": {
+        "number": "ABR-2023-05-002",
+        "issueDate": "2023-05-02",
+        "dueDate": "2023-05-02",
+        "periodStart": "2023-04-03",
+        "periodEnd": "2023-05-02",
+        "generatedAt": "2023-05-02T06:00:00Z",
+        "pastDue": false,
+        "title": "Mai 2023",
+        "page": "1",
+        "totalPages": "1"
+      },
+      "account": {
+        "holder": "Petra Schneider",
+        "cardBrand": "Visa",
+        "last4": "7621",
+        "cardNumber": "4273 81XX XXXX 7621",
+        "creditLimit": 1000,
+        "availableCredit": 756.4,
+        "primaryAccount": "4273 81XX XXXX 7618"
+      },
+      "summary": {
+        "previousBalance": 0,
+        "payments": 0,
+        "credits": 0,
+        "purchases": 243.6,
+        "cashAdvances": 0,
+        "fees": 0,
+        "interest": 0,
+        "newBalance": 243.6,
+        "minimumPayment": 243.6
+      },
+      "rates": {
+        "purchaseApr": 0,
+        "cashApr": 0,
+        "penaltyApr": 0,
+        "daysInPeriod": 30
+      },
+      "rewards": {
+        "tier": "Standard",
+        "openingPoints": 0,
+        "earned": 0,
+        "redeemed": 0,
+        "closingPoints": 0
+      },
+      "transactions": [
+        {
+          "id": "TXN-401",
+          "transactionDate": "2023-04-10",
+          "postedDate": "2023-04-11",
+          "description": "IKEA Deutschland GmbH, Bielefeld",
+          "category": "Shopping",
+          "amount": 149.95,
+          "type": "purchase",
+          "reference": "TXN-401"
+        },
+        {
+          "id": "TXN-402",
+          "transactionDate": "2023-04-15",
+          "postedDate": "2023-04-17",
+          "description": "REWE Filiale 8432, Paderborn",
+          "category": "Groceries",
+          "amount": 58.3,
+          "type": "purchase",
+          "reference": "TXN-402"
+        },
+        {
+          "id": "TXN-403",
+          "transactionDate": "2023-04-22",
+          "postedDate": "2023-04-24",
+          "description": "dm-drogerie markt, Paderborn",
+          "category": "Shopping",
+          "amount": 35.35,
+          "type": "purchase",
+          "reference": "TXN-403"
+        }
+      ],
+      "fees": [],
+      "payment": {
+        "iban": "N/A",
+        "reference": "ABR-2023-05-002",
+        "autopay": true
+      },
+      "contact": {
+        "phone": "+49 (0)89 411 116 - 336",
+        "email": "kartenservice@sparkasse-paderborn-detmold.de",
+        "web": "https://www.sparkasse-paderborn-detmold.de"
+      },
+      "messages": [],
+      "legal": {
+        "verificationNote": "bitte prüfen Sie diese Abrechnung auf ihre Richtigkeit. Etwaige Einwendungen müssen unverzüglich beim BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau schriftlich mitgeteilt werden.",
+        "settlementNote": "Die Abrechnung erfolgt über das Stammkonto NR. 4273 81XX XXXX 7618.",
+        "creditLimitNote": "Der monatliche Verfügungsrahmen Ihrer VISA Card beträgt 1.000 EUR.",
+        "feeHint": "Über Zinsen und Gebühren informieren auch der Preisaushang und das Preisverzeichnis in den Geschäftsstellen Ihres Kreditinstitutes."
+      }
+    }
+  }
+}

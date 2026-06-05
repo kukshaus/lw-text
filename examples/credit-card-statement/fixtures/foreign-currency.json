@@ -1,0 +1,152 @@
+{
+  "lwTestCase": {
+    "title": "Foreign currency transactions",
+    "description": "Mix of domestic EUR and international GBP/USD purchases. Exercises the W\u00e4hrung, Betrag, and Kurs columns that are empty on domestic-only statements.",
+    "template": "statement",
+    "default": false
+  },
+  "dataSources": {
+    "DATA": {
+      "locale": "de-DE",
+      "currency": "EUR",
+
+      "issuer": {
+        "name": "Sparkasse Paderborn-Detmold",
+        "senderLine": "Sparkasse \u00b7 Postfach 24 60 \u00b7 33054 Paderborn",
+        "serviceLabel": "Allgemeine Fragen zum VISA Card-Service beantwortet Ihnen:",
+        "servicePhone": "+49 (0)89 411 116 - 336",
+        "serviceFax": "+49 (0)89 411 116 - 400",
+        "lostCardLabel": "Bei Kartenverlust w\u00e4hlen Sie bitte:",
+        "lostCardPhone": "+49 (0)89 411 116 - 446",
+        "disputeAddress": "BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau"
+      },
+
+      "recipient": {
+        "salutation": "Herrn",
+        "name": "Ilyas H\u00fcbner",
+        "careOf": "c/o Niklas Neschen",
+        "street": "M\u00fchlenstr. 6",
+        "zip": "33189",
+        "city": "Schlangen"
+      },
+
+      "statement": {
+        "number": "ABR-2023-06",
+        "issueDate": "2023-06-02",
+        "dueDate": "2023-06-02",
+        "periodStart": "2023-05-03",
+        "periodEnd": "2023-06-02",
+        "generatedAt": "2023-06-02T06:00:00Z",
+        "pastDue": false,
+        "title": "Juni 2023",
+        "page": "1",
+        "totalPages": "1"
+      },
+
+      "account": {
+        "holder": "Ilyas H\u00fcbner",
+        "cardBrand": "Visa",
+        "last4": "3958",
+        "cardNumber": "4273 92XX XXXX 3958",
+        "creditLimit": 500.00,
+        "availableCredit": 112.47,
+        "primaryAccount": "4273 92XX XXXX 3594"
+      },
+
+      "summary": {
+        "previousBalance": 0,
+        "payments": 0,
+        "credits": 0,
+        "purchases": 387.53,
+        "cashAdvances": 0,
+        "fees": 0,
+        "interest": 0,
+        "newBalance": 387.53,
+        "minimumPayment": 387.53
+      },
+
+      "rates": {
+        "purchaseApr": 0,
+        "cashApr": 0,
+        "penaltyApr": 0,
+        "daysInPeriod": 31
+      },
+
+      "rewards": {
+        "tier": "Standard",
+        "openingPoints": 0,
+        "earned": 0,
+        "redeemed": 0,
+        "closingPoints": 0
+      },
+
+      "transactions": [
+        {
+          "id": "TXN-101",
+          "transactionDate": "2023-05-08",
+          "postedDate": "2023-05-10",
+          "description": "TESCO STORES 2941, LONDON",
+          "category": "Groceries",
+          "amount": 56.23,
+          "type": "purchase",
+          "reference": "TXN-101",
+          "foreign": { "amount": 48.50, "currency": "GBP", "rate": 1.1593 }
+        },
+        {
+          "id": "TXN-102",
+          "transactionDate": "2023-05-12",
+          "postedDate": "2023-05-14",
+          "description": "Hornbach Baumarkt AG FIL., Bielefeld",
+          "category": "Shopping",
+          "amount": 89.90,
+          "type": "purchase",
+          "reference": "TXN-102"
+        },
+        {
+          "id": "TXN-103",
+          "transactionDate": "2023-05-18",
+          "postedDate": "2023-05-20",
+          "description": "AMAZON.COM AMZN.COM/BILL, SEATTLE",
+          "category": "Shopping",
+          "amount": 137.40,
+          "type": "purchase",
+          "reference": "TXN-103",
+          "foreign": { "amount": 149.99, "currency": "USD", "rate": 0.9161 }
+        },
+        {
+          "id": "TXN-104",
+          "transactionDate": "2023-05-22",
+          "postedDate": "2023-05-23",
+          "description": "STAR Schlangen, Schlangen",
+          "category": "Fuel",
+          "amount": 104.00,
+          "type": "purchase",
+          "reference": "TXN-104"
+        }
+      ],
+
+      "fees": [],
+
+      "payment": {
+        "iban": "N/A",
+        "reference": "ABR-2023-06",
+        "autopay": true
+      },
+
+      "contact": {
+        "phone": "+49 (0)89 411 116 - 336",
+        "email": "kartenservice@sparkasse-paderborn-detmold.de",
+        "web": "https://www.sparkasse-paderborn-detmold.de"
+      },
+
+      "messages": [],
+
+      "legal": {
+        "verificationNote": "bitte pr\u00fcfen Sie diese Abrechnung auf ihre Richtigkeit. Etwaige Einwendungen m\u00fcssen unverz\u00fcglich beim BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau schriftlich mitgeteilt werden.",
+        "settlementNote": "Die Abrechnung erfolgt \u00fcber das Stammkonto NR. 4273 92XX XXXX 3594.",
+        "creditLimitNote": "Der monatliche Verf\u00fcgungsrahmen Ihrer VISA Card betr\u00e4gt 500 EUR.",
+        "feeHint": "\u00dcber Zinsen und Geb\u00fchren informieren auch der Preisaushang und das Preisverzeichnis in den Gesch\u00e4ftsstellen Ihres Kreditinstitutes."
+      }
+    }
+  }
+}

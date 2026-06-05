@@ -1,0 +1,28 @@
+{
+  "name": "@lw-text/server",
+  "version": "0.1.0",
+  "description": "lw-text REST API: compose, preview, validate, AI context",
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@lw-text/engine": "*",
+    "@lw-text/project": "*",
+    "@lw-text/schema": "*",
+    "@fastify/cors": "^10.0.1",
+    "@fastify/static": "^8.0.3",
+    "fastify": "^5.1.0",
+    "yaml": "^2.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.8",
+    "@types/node": "^22.10.1"
+  }
+}

@@ -1,0 +1,15 @@
+name: acme-insurance
+version: 1
+kind: application
+validation:
+  profile: strict
+dataSources:
+  - name: DATA
+    schema: schemas/DATA.schema.json
+theme:
+  tokens:
+    color-brand: "#4f46e5"
+    color-text: "#0f172a"
+dependencies:
+  - project: acme-common
+    version: "1"

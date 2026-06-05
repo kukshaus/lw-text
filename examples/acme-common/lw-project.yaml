@@ -1,0 +1,16 @@
+name: Acme Common Framework
+version: 1
+kind: framework
+validation:
+  profile: strict
+exports:
+  blocks: true
+  schemas: true
+dataSources:
+  - name: COMMON
+    schema: schemas/COMMON.schema.json
+theme:
+  tokens:
+    color-border: "#e2e8f0"
+    color-muted: "#64748b"
+dependencies: []

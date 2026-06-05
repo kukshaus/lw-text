@@ -1,0 +1,22 @@
+{
+  "name": "@lw-text/cli",
+  "version": "0.1.0",
+  "description": "lw-text command line: init, validate, preview, compose",
+  "type": "module",
+  "bin": { "lw": "./dist/index.js" },
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@lw-text/engine": "*",
+    "@lw-text/project": "*",
+    "@lw-text/schema": "*",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@types/node": "^22.10.1"
+  }
+}

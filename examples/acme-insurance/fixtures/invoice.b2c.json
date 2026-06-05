@@ -1,0 +1,44 @@
+{
+  "lwTestCase": {
+    "title": "B2C — no reverse charge",
+    "description": "Private customer; exercises the non-EU-B2B branch and a missing due date.",
+    "default": false
+  },
+  "dataSources": {
+    "DATA": {
+      "locale": "de-DE",
+      "brand": {
+        "name": "Acme Insurance AG",
+        "tagline": "Protecting what matters since 1984"
+      },
+      "invoice": {
+        "number": "INV-2026-000511",
+        "date": "2026-05-20",
+        "currency": "EUR"
+      },
+      "seller": {
+        "name": "Acme Insurance AG",
+        "addressLines": ["Hauptstrasse 12", "10115 Berlin", "Germany"],
+        "vatId": "DE123456789",
+        "iban": "DE89370400440532013000"
+      },
+      "customer": {
+        "name": "Maria Schneider",
+        "type": "B2C",
+        "region": "EU",
+        "vatId": "",
+        "addressLines": ["Gartenweg 8", "79110 Freiburg", "Germany"]
+      },
+      "lineItems": [
+        { "description": "Household contents premium (annual)", "qty": 1, "unitPrice": 312.0, "amount": 312.0 }
+      ],
+      "totals": {
+        "net": 312.0,
+        "taxRate": 0.19,
+        "tax": 59.28,
+        "gross": 371.28
+      },
+      "notes": "Thank you for choosing Acme. Payment is due within 14 days."
+    }
+  }
+}

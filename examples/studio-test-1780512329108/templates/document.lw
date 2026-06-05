@@ -1,0 +1,7 @@
+<template id="document" version="1.0.0" data-sources="DATA" output-modes="html,pdf">
+  <section id="main">
+    <h1>{{ DATA.title }}</h1>
+    <p data-bind="DATA.description" format="plain" />
+    <p data-block="blocks/legal-footer"></p>
+  </section>
+</template>

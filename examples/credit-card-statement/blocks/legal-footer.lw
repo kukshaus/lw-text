@@ -1,0 +1,14 @@
+<template id="blocks/legal-footer" version="1.0.0" data-sources="DATA">
+  <!--
+    LEGAL FOOTER (Hinweis-Block)
+    Rendered at the bottom-right of the statement. Informs the cardholder
+    that full fee and interest details are available in-branch (Preisaushang
+    / Preisverzeichnis). Required by German consumer credit regulations.
+  -->
+  <section class="lw-section" style="margin-top:6px">
+    <p style="margin:0 0 2px;font-weight:bold;font-size:9pt">Hinweis:</p>
+    <p class="muted" style="font-size:8.5pt;margin:0;line-height:1.4">
+      {{ DATA.legal.feeHint }}
+    </p>
+  </section>
+</template>

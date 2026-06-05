@@ -1,0 +1,85 @@
+<template id="invoice" version="1.0.0" data-sources="DATA" title="Invoice" output-modes="pdf,html">
+  <section id="masthead" class="lw-section" style="display:flex;justify-content:space-between;align-items:flex-start">
+    <div>
+      <h1 style="margin:0;color:var(--color-brand)">{{ DATA.brand.name }}</h1>
+      <p class="muted" style="margin:2px 0 0">{{ DATA.brand.tagline }}</p>
+    </div>
+    <div style="text-align:right">
+      <h2 style="margin:0">Invoice</h2>
+      <p class="muted" style="margin:2px 0 0">{{ DATA.invoice.number }}</p>
+    </div>
+  </section>
+
+  <section id="parties" class="lw-section" style="display:flex;justify-content:space-between;gap:24px">
+    <div>
+      <p class="muted" style="margin:0 0 4px">From</p>
+      <p style="margin:0"><strong>{{ DATA.seller.name }}</strong></p>
+      <p style="margin:0" repeat="line in DATA.seller.addressLines">{{ line }}</p>
+    </div>
+    <div>
+      <p class="muted" style="margin:0 0 4px">Bill to</p>
+      <p style="margin:0"><strong>{{ DATA.customer.name }}</strong></p>
+      <p style="margin:0" repeat="line in DATA.customer.addressLines">{{ line }}</p>
+    </div>
+    <div style="text-align:right">
+      <p class="muted" style="margin:0 0 4px">Details</p>
+      <p style="margin:0">Date: <span data-bind="DATA.invoice.date" format="date"></span></p>
+      <p style="margin:0" if="DATA.invoice.dueDate">Due: <span data-bind="DATA.invoice.dueDate" format="date"></span></p>
+    </div>
+  </section>
+
+  <table id="line-items">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th class="amount">Qty</th>
+        <th class="amount">Unit price</th>
+        <th class="amount">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat="row in DATA.lineItems">
+        <td>{{ row.description }}</td>
+        <td class="amount" data-bind="row.qty" format="number"></td>
+        <td class="amount" data-bind="row.unitPrice" format="currency" currency="{{ DATA.invoice.currency }}"></td>
+        <td class="amount" data-bind="row.amount" format="currency" currency="{{ DATA.invoice.currency }}"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="totals">
+    <tbody>
+      <tr>
+        <td class="muted">Net</td>
+        <td class="amount" data-bind="DATA.totals.net" format="currency" currency="{{ DATA.invoice.currency }}"></td>
+      </tr>
+      <tr if="DATA.totals.taxRate">
+        <td class="muted">VAT (<span data-bind="DATA.totals.taxRate" format="percent"></span>)</td>
+        <td class="amount" data-bind="DATA.totals.tax" format="currency" currency="{{ DATA.invoice.currency }}"></td>
+      </tr>
+      <tr class="grand">
+        <td>Total due</td>
+        <td class="amount" data-bind="DATA.totals.gross" format="currency" currency="{{ DATA.invoice.currency }}"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <section id="payment" class="lw-section" style="display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:1px solid var(--color-border);padding-top:14px">
+    <div>
+      <p class="muted" style="margin:0 0 4px">Scan to pay</p>
+      <p style="margin:0">Reference this invoice when paying.</p>
+    </div>
+    <lw-barcode type="qrcode" value="{{ DATA.invoice.number }}" alt="Invoice QR code"></lw-barcode>
+    <lw-barcode type="code128" value="{{ DATA.invoice.number }}" show-text="true" height="12"></lw-barcode>
+  </section>
+
+  <section id="vat-note" class="lw-section" if="DATA.customer.region == 'EU' && DATA.customer.type == 'B2B'">
+    <p class="muted">Reverse charge may apply for intra-EU B2B supplies. Customer VAT ID: {{ DATA.customer.vatId }}.</p>
+  </section>
+
+  <section id="notes" class="lw-section" if="DATA.notes">
+    <p>{{ DATA.notes }}</p>
+  </section>
+
+  <p data-block="blocks/legal-footer"></p>
+</template>

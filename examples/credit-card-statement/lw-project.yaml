@@ -1,0 +1,13 @@
+name: credit-card-statement
+version: 1
+validation:
+  profile: strict
+dataSources:
+  - name: DATA
+    schema: schemas/DATA.schema.json
+theme:
+  tokens:
+    color-brand: "#E3000F"
+    color-text: "#1a1a1a"
+    color-brand-secondary: "#1A1F71"
+dependencies: []

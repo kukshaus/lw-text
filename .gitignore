@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+*.log
+.env
+.env.*
+coverage/
+playwright-report/
+.lw-out/
+**/.lw-studio/
+examples/**/*.html
+examples/**/*.pdf

@@ -1,0 +1,23 @@
+{
+  "name": "@lw-text/engine",
+  "version": "0.1.0",
+  "description": "lw-text template engine: .lw parser, safe expression DSL, IR, HTML renderer",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "bwip-js": "^4.11.1",
+    "parse5": "^7.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

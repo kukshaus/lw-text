@@ -1,0 +1,87 @@
+<template id="statement" version="1.0.0" data-sources="DATA" output-modes="pdf,html" title="Visa Card Abrechnung">
+  <img src="assets/sparkasse_logo_rot_cmyk.jpg" alt="image" style="width: 237px; height: 74px"></img>
+  <section id="masthead" class="lw-section" style="display:flex;align-items:flex-start;gap:12px;margin-bottom:18px">
+    <div></div>
+  </section>
+  <section id="sender-and-service" class="lw-section" style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+    <div>
+      <p class="muted" style="margin:0;font-size:7.5pt;text-decoration:underline">{{ DATA.issuer.senderLine }}</p>
+    </div>
+    <div style="text-align:left;font-size:8.5pt;line-height:1.45">
+      <p style="margin:0;font-weight:bold">{{ DATA.issuer.serviceLabel }}</p>
+      <p style="margin:0">Tel.: {{ DATA.issuer.servicePhone }}</p>
+      <p style="margin:0">Fax: {{ DATA.issuer.serviceFax }}</p>
+      <p style="margin:4px 0 0;font-weight:bold">{{ DATA.issuer.lostCardLabel }}</p>
+      <p style="margin:0">Tel.: {{ DATA.issuer.lostCardPhone }}</p>
+    </div>
+  </section>
+  <section id="address-and-visa" class="lw-section" style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px">
+    <div style="font-size:10pt;line-height:1.5">
+      <p style="margin:0">{{ DATA.recipient.salutation }}</p>
+      <p style="margin:0">{{ DATA.recipient.name }}</p>
+      <p style="margin:0" if="DATA.recipient.careOf">{{ DATA.recipient.careOf }}</p>
+      <p style="margin:0">{{ DATA.recipient.street }}</p>
+      <p style="margin:0">{{ DATA.recipient.zip }} {{ DATA.recipient.city }}</p>
+    </div>
+    <div style="padding-top:10px">
+      <p style="margin:0;font-size:32pt;font-weight:bold;font-style:italic;color:#1A1F71;font-family:Arial,Helvetica,sans-serif;letter-spacing:-1px">VISA</p>
+    </div>
+  </section>
+  <section id="statement-meta" class="lw-section" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px">
+    <div style="font-size:9.5pt">
+      <p style="margin:0;font-weight:bold">Ihre Abrechnung vom <span><span><span><span><span><span><span><span><span><span><span><span><span data-bind="DATA.statement.periodStart" format="date"></span></span></span></span></span></span></span></span></span></span></span></span></span> bis <span><span><span><span><span><span><span><span><span><span><span><span><span data-bind="DATA.statement.periodEnd" format="date"></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+      <p style="margin:6px 0 0" class="muted">Seite {{ DATA.statement.page }} von {{ DATA.statement.totalPages }}</p>
+    </div>
+    <div style="font-size:9.5pt">
+      <div style="display:flex;justify-content:space-between;gap:20px;padding:1px 0"><span style="font-weight:bold">Abrechnung:</span><span>{{ DATA.statement.title }}</span></div>
+      <div style="display:flex;justify-content:space-between;gap:20px;padding:1px 0"><span style="font-weight:bold">Abrechnungsdatum:</span><span><span><span><span><span><span><span><span><span><span><span><span><span data-bind="DATA.statement.issueDate" format="date"></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+      <div style="display:flex;justify-content:space-between;gap:20px;padding:1px 0"><span style="font-weight:bold">Visa Card-Nummer:</span><span>{{ DATA.account.cardNumber }}</span></div>
+      <div style="display:flex;justify-content:space-between;gap:20px;padding:1px 0"><span style="font-weight:bold">Karteninhaber:</span><span>{{ DATA.account.holder }}</span></div>
+    </div>
+  </section>
+  <section id="transactions" class="lw-section">
+    <div style="display:flex;gap:6px;font-size:8.5pt;font-weight:bold;padding-bottom:4px;border-bottom:1px solid #1a1a1a">
+      <div style="flex:0 0 68px">Datum Beleg</div>
+      <div style="flex:0 0 68px">Datum Buchung</div>
+      <div style="flex:1">Angabe des Unternehmens /Verwendungszweck</div>
+      <div style="flex:0 0 58px;text-align:center">Währung</div>
+      <div style="flex:0 0 65px;text-align:right">Betrag</div>
+      <div style="flex:0 0 50px;text-align:right">Kurs</div>
+      <div style="flex:0 0 80px;text-align:right">Betrag in EUR</div>
+    </div>
+    <div style="display:flex;gap:6px;font-size:9pt;padding:3px 0;border-bottom:1px solid #eee" repeat="tx in DATA.transactions">
+      <div style="flex:0 0 68px" data-bind="tx.transactionDate" format="date"></div>
+      <div style="flex:0 0 68px" data-bind="tx.postedDate" format="date"></div>
+      <div style="flex:1">{{ tx.description }}</div>
+      <div style="flex:0 0 58px;text-align:center" if="tx.foreign">{{ tx.foreign.currency }}</div>
+      <div style="flex:0 0 58px;text-align:center" if="!tx.foreign"></div>
+      <div style="flex:0 0 65px;text-align:right" if="tx.foreign"><span><span><span><span><span><span><span><span><span><span><span><span><span data-bind="tx.foreign.amount" format="number"></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+      <div style="flex:0 0 65px;text-align:right" if="!tx.foreign"></div>
+      <div style="flex:0 0 50px;text-align:right" if="tx.foreign"><span><span><span><span><span><span><span><span><span><span><span><span><span data-bind="tx.foreign.rate" format="number"></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+      <div style="flex:0 0 50px;text-align:right" if="!tx.foreign"></div>
+      <div style="flex:0 0 80px;text-align:right"><span><span><span><span><span><span><span><span><span><span><span><span><span data-bind="tx.amount" format="currency"></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+    </div>
+  </section>
+  <section id="balance" class="lw-section" style="display:flex;gap:6px;font-size:9.5pt;font-weight:bold;padding-top:4px;border-top:1px solid #1a1a1a;margin-top:2px">
+    <div style="flex:0 0 68px"></div>
+    <div style="flex:0 0 68px"></div>
+    <div style="flex:1">Neuer Saldo</div>
+    <div style="flex:0 0 58px"></div>
+    <div style="flex:0 0 65px"></div>
+    <div style="flex:0 0 50px"></div>
+    <div style="flex:0 0 80px;text-align:right"><span><span><span><span><span><span><span><span><span><span><span><span><span data-bind="DATA.summary.newBalance" format="currency"></span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+  </section>
+  <section id="legal" class="lw-section" style="margin-top:22px;font-size:9pt;line-height:1.5">
+    <p style="margin:0 0 4px">Sehr geehrter Herr {{ DATA.account.holder }},</p>
+    <p style="margin:0 0 14px">{{ DATA.legal.verificationNote }}</p>
+    <div style="display:flex;gap:30px">
+      <div style="flex:1">
+        <p style="margin:0 0 10px">{{ DATA.legal.settlementNote }}</p>
+        <p style="margin:0">{{ DATA.legal.creditLimitNote }}</p>
+      </div>
+      <div style="flex:1">
+        <p data-block="blocks/legal-footer"></p>
+      </div>
+    </div>
+  </section>
+</template>

@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://acme.example/schemas/credit-card-statement/DATA.schema.json",
+  "title": "DATA",
+  "description": "German Sparkasse VISA card monthly statement (Kreditkartenabrechnung).",
+  "type": "object",
+  "required": ["locale", "currency", "statement", "account", "summary", "rates", "rewards", "transactions", "payment", "contact"],
+  "properties": {
+    "locale": { "type": "string", "default": "de-DE", "description": "BCP-47 locale — de-DE for German number/date formatting." },
+    "currency": { "type": "string", "default": "EUR", "description": "ISO 4217 currency code." },
+
+    "issuer": {
+      "type": "object",
+      "description": "Card-issuing bank identity, service contacts, and mailing addresses.",
+      "properties": {
+        "name": { "type": "string", "description": "Full bank name shown in the letterhead, e.g. 'Sparkasse Paderborn-Detmold'." },
+        "senderLine": { "type": "string", "description": "Compact return-address line printed above the letter window." },
+        "serviceLabel": { "type": "string", "description": "Intro text for the card-service phone block." },
+        "servicePhone": { "type": "string" },
+        "serviceFax": { "type": "string" },
+        "lostCardLabel": { "type": "string", "description": "Label for the lost/stolen card hotline." },
+        "lostCardPhone": { "type": "string" },
+        "disputeAddress": { "type": "string", "description": "Full postal address for written disputes." }
+      }
+    },
+
+    "recipient": {
+      "type": "object",
+      "description": "Cardholder mailing address, placed in the DIN 5008 letter window position.",
+      "properties": {
+        "salutation": { "type": "string", "description": "'Herrn', 'Frau', or empty." },
+        "name": { "type": "string" },
+        "careOf": { "type": "string", "description": "c/o line, if applicable." },
+        "street": { "type": "string" },
+        "zip": { "type": "string" },
+        "city": { "type": "string" }
+      }
+    },
+
+    "statement": {
+      "type": "object",
+      "required": ["number", "issueDate", "dueDate", "periodStart", "periodEnd", "generatedAt"],
+      "properties": {
+        "number": { "type": "string", "description": "Human-readable statement identifier." },
+        "issueDate": { "type": "string", "format": "date" },
+        "dueDate": { "type": "string", "format": "date" },
+        "periodStart": { "type": "string", "format": "date" },
+        "periodEnd": { "type": "string", "format": "date" },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "pastDue": { "type": "boolean", "default": false },
+        "title": { "type": "string", "description": "Month label shown top-right, e.g. 'Mai 2023'." },
+        "page": { "type": "string", "description": "Current page, e.g. '1'." },
+        "totalPages": { "type": "string", "description": "Total pages, e.g. '1'." }
+      }
+    },
+
+    "account": {
+      "type": "object",
+      "required": ["holder", "cardBrand", "last4", "creditLimit", "availableCredit"],
+      "properties": {
+        "holder": { "type": "string" },
+        "email": { "type": "string", "format": "email", "x-sensitive": true },
+        "phone": { "type": "string", "x-sensitive": true },
+        "cardBrand": { "type": "string", "enum": ["Visa", "Mastercard", "Amex", "Discover"] },
+        "last4": { "type": "string", "minLength": 4, "maxLength": 4 },
+        "cardNumber": { "type": "string", "description": "Masked full card number, e.g. '4273 92XX XXXX 3958'.", "x-sensitive": true },
+        "creditLimit": { "type": "number", "description": "Monatlicher Verfügungsrahmen." },
+        "availableCredit": { "type": "number" },
+        "cashLimit": { "type": "number" },
+        "primaryAccount": { "type": "string", "description": "Stammkonto number for settlement, e.g. '4273 92XX XXXX 3594'.", "x-sensitive": true },
+        "openedOn": { "type": "string", "format": "date" }
+      }
+    },
+
+    "summary": {
+      "type": "object",
+      "description": "Balance roll-up for the billing period.",
+      "required": ["previousBalance", "payments", "credits", "purchases", "cashAdvances", "fees", "interest", "newBalance", "minimumPayment"],
+      "properties": {
+        "previousBalance": { "type": "number" },
+        "payments": { "type": "number" },
+        "credits": { "type": "number" },
+        "purchases": { "type": "number" },
+        "cashAdvances": { "type": "number" },
+        "fees": { "type": "number" },
+        "interest": { "type": "number" },
+        "newBalance": { "type": "number", "description": "Neuer Saldo — positive means cardholder owes." },
+        "minimumPayment": { "type": "number" }
+      }
+    },
+
+    "rates": {
+      "type": "object",
+      "required": ["purchaseApr", "cashApr", "penaltyApr", "daysInPeriod"],
+      "properties": {
+        "purchaseApr": { "type": "number" },
+        "cashApr": { "type": "number" },
+        "penaltyApr": { "type": "number" },
+        "daysInPeriod": { "type": "integer", "minimum": 28, "maximum": 31 }
+      }
+    },
+
+    "rewards": {
+      "type": "object",
+      "required": ["tier", "openingPoints", "earned", "redeemed", "closingPoints"],
+      "properties": {
+        "tier": { "type": "string", "enum": ["Standard", "Silver", "Gold", "Platinum"] },
+        "openingPoints": { "type": "integer" },
+        "earned": { "type": "integer" },
+        "redeemed": { "type": "integer" },
+        "closingPoints": { "type": "integer" },
+        "cashValue": { "type": "number" }
+      }
+    },
+
+    "transactions": {
+      "type": "array",
+      "description": "All posted transactions in the period (Umsätze).",
+      "items": {
+        "type": "object",
+        "required": ["id", "postedDate", "description", "amount", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "postedDate": { "type": "string", "format": "date", "description": "Datum Buchung — date the bank posted the transaction." },
+          "transactionDate": { "type": "string", "format": "date", "description": "Datum Beleg — date on the merchant receipt." },
+          "description": { "type": "string", "description": "Angabe des Unternehmens / Verwendungszweck." },
+          "merchant": { "type": "string" },
+          "category": {
+            "type": "string",
+            "enum": ["Groceries", "Dining", "Travel", "Fuel", "Utilities", "Shopping", "Entertainment", "Healthcare", "Cash", "Payment", "Fee", "Interest", "Other"]
+          },
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "amount": { "type": "number", "description": "Amount in statement currency (EUR). Positive = charge." },
+          "type": { "type": "string", "enum": ["purchase", "payment", "credit", "fee", "interest", "cashAdvance"] },
+          "reference": { "type": "string" },
+          "foreign": {
+            "type": "object",
+            "description": "Present only for cross-currency transactions.",
+            "required": ["amount", "currency"],
+            "properties": {
+              "amount": { "type": "number", "description": "Original amount in foreign currency." },
+              "currency": { "type": "string", "description": "ISO 4217 foreign currency code." },
+              "rate": { "type": "number", "description": "Exchange rate applied (Kurs)." }
+            }
+          }
+        }
+      }
+    },
+
+    "fees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["description", "amount", "date"],
+        "properties": {
+          "description": { "type": "string" },
+          "amount": { "type": "number" },
+          "date": { "type": "string", "format": "date" }
+        }
+      }
+    },
+
+    "payment": {
+      "type": "object",
+      "required": ["iban", "reference"],
+      "properties": {
+        "iban": { "type": "string", "x-sensitive": true },
+        "reference": { "type": "string" },
+        "payeeUrl": { "type": "string", "format": "uri" },
+        "autopay": { "type": "boolean", "default": false }
+      }
+    },
+
+    "contact": {
+      "type": "object",
+      "required": ["phone", "email"],
+      "properties": {
+        "phone": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "web": { "type": "string", "format": "uri" },
+        "hours": { "type": "string" }
+      }
+    },
+
+    "messages": { "type": "array", "items": { "type": "string" } },
+
+    "promo": {
+      "type": "object",
+      "required": ["title", "body"],
+      "properties": {
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "expires": { "type": "string", "format": "date" }
+      }
+    },
+
+    "warnings": {
+      "type": "object",
+      "properties": {
+        "lateFeeMax": { "type": "number" },
+        "penaltyApr": { "type": "number" },
+        "payoffScenarios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["paymentDescription", "timeframe", "totalPaid"],
+            "properties": {
+              "paymentDescription": { "type": "string" },
+              "timeframe": { "type": "string" },
+              "totalPaid": { "type": "number" },
+              "savings": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+
+    "legal": {
+      "type": "object",
+      "description": "Configurable legal / fine-print paragraphs shown in the footer.",
+      "properties": {
+        "verificationNote": { "type": "string", "description": "Request to verify statement correctness." },
+        "settlementNote": { "type": "string", "description": "Note about Stammkonto settlement." },
+        "creditLimitNote": { "type": "string", "description": "Monthly credit limit reminder." },
+        "feeHint": { "type": "string", "description": "Hint about where to find fee/interest details." }
+      }
+    }
+  }
+}

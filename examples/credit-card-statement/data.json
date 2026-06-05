@@ -1,0 +1,172 @@
+{
+  "DATA": {
+    "locale": "de-DE",
+    "currency": "EUR",
+
+    "issuer": {
+      "name": "Sparkasse Paderborn-Detmold",
+      "senderLine": "Sparkasse \u00b7 Postfach 24 60 \u00b7 33054 Paderborn",
+      "serviceLabel": "Allgemeine Fragen zum VISA Card-Service beantwortet Ihnen:",
+      "servicePhone": "+49 (0)89 411 116 - 336",
+      "serviceFax": "+49 (0)89 411 116 - 400",
+      "lostCardLabel": "Bei Kartenverlust w\u00e4hlen Sie bitte:",
+      "lostCardPhone": "+49 (0)89 411 116 - 446",
+      "disputeAddress": "BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau"
+    },
+
+    "recipient": {
+      "salutation": "Herrn",
+      "name": "Ilyas H\u00fcbner",
+      "careOf": "c/o Niklas Neschen",
+      "street": "M\u00fchlenstr. 6",
+      "zip": "33189",
+      "city": "Schlangen"
+    },
+
+    "statement": {
+      "number": "ABR-2023-05",
+      "issueDate": "2023-05-02",
+      "dueDate": "2023-05-02",
+      "periodStart": "2023-04-03",
+      "periodEnd": "2023-05-02",
+      "generatedAt": "2023-05-02T06:00:00Z",
+      "pastDue": false,
+      "title": "Mai 2023",
+      "page": "1",
+      "totalPages": "1"
+    },
+
+    "account": {
+      "holder": "Ilyas H\u00fcbner",
+      "cardBrand": "Visa",
+      "last4": "3958",
+      "cardNumber": "4273 92XX XXXX 3958",
+      "creditLimit": 500.00,
+      "availableCredit": 63.11,
+      "primaryAccount": "4273 92XX XXXX 3594"
+    },
+
+    "summary": {
+      "previousBalance": 0,
+      "payments": 0,
+      "credits": 0,
+      "purchases": 436.89,
+      "cashAdvances": 0,
+      "fees": 0,
+      "interest": 0,
+      "newBalance": 436.89,
+      "minimumPayment": 436.89
+    },
+
+    "rates": {
+      "purchaseApr": 0,
+      "cashApr": 0,
+      "penaltyApr": 0,
+      "daysInPeriod": 30
+    },
+
+    "rewards": {
+      "tier": "Standard",
+      "openingPoints": 0,
+      "earned": 0,
+      "redeemed": 0,
+      "closingPoints": 0
+    },
+
+    "transactions": [
+      {
+        "id": "TXN-001",
+        "transactionDate": "2023-04-05",
+        "postedDate": "2023-04-06",
+        "description": "toom BM Horn-Bad M, HORN-BAD MEIN",
+        "category": "Shopping",
+        "amount": 35.99,
+        "type": "purchase",
+        "reference": "TXN-001"
+      },
+      {
+        "id": "TXN-002",
+        "transactionDate": "2023-04-06",
+        "postedDate": "2023-04-11",
+        "description": "toom BM Horn-Bad M, HORN-BAD MEIN",
+        "category": "Shopping",
+        "amount": 24.45,
+        "type": "purchase",
+        "reference": "TXN-002"
+      },
+      {
+        "id": "TXN-003",
+        "transactionDate": "2023-04-12",
+        "postedDate": "2023-04-13",
+        "description": "Hornbach Baumarkt AG FIL., Bielefeld",
+        "category": "Shopping",
+        "amount": 106.85,
+        "type": "purchase",
+        "reference": "TXN-003"
+      },
+      {
+        "id": "TXN-004",
+        "transactionDate": "2023-04-15",
+        "postedDate": "2023-04-17",
+        "description": "STAR Schlangen, Schlangen",
+        "category": "Fuel",
+        "amount": 114.72,
+        "type": "purchase",
+        "reference": "TXN-004"
+      },
+      {
+        "id": "TXN-005",
+        "transactionDate": "2023-04-14",
+        "postedDate": "2023-04-17",
+        "description": "STADT PADERBORN ABFALLENT, Paderborn",
+        "category": "Utilities",
+        "amount": 4.00,
+        "type": "purchase",
+        "reference": "TXN-005"
+      },
+      {
+        "id": "TXN-006",
+        "transactionDate": "2023-04-24",
+        "postedDate": "2023-04-25",
+        "description": "Rosemeier GmbH, Horn-Bad Mein",
+        "category": "Other",
+        "amount": 89.00,
+        "type": "purchase",
+        "reference": "TXN-006"
+      },
+      {
+        "id": "TXN-007",
+        "transactionDate": "2023-04-24",
+        "postedDate": "2023-04-25",
+        "description": "Hornbach Baumarkt AG FIL., Paderborn",
+        "category": "Shopping",
+        "amount": 61.88,
+        "type": "purchase",
+        "reference": "TXN-007"
+      }
+    ],
+
+    "fees": [],
+
+    "payment": {
+      "iban": "N/A",
+      "reference": "ABR-2023-05",
+      "autopay": true
+    },
+
+    "contact": {
+      "phone": "+49 (0)89 411 116 - 336",
+      "email": "kartenservice@sparkasse-paderborn-detmold.de",
+      "web": "https://www.sparkasse-paderborn-detmold.de"
+    },
+
+    "messages": [],
+
+    "legal": {
+      "verificationNote": "bitte pr\u00fcfen Sie diese Abrechnung auf ihre Richtigkeit. Etwaige Einwendungen m\u00fcssen unverz\u00fcglich beim BCS Kartenservice Ihrer Sparkasse, Postfach 2566, 94015 Passau schriftlich mitgeteilt werden.",
+      "settlementNote": "Die Abrechnung erfolgt \u00fcber das Stammkonto NR. 4273 92XX XXXX 3594.",
+      "creditLimitNote": "Der monatliche Verf\u00fcgungsrahmen Ihrer VISA Card betr\u00e4gt 500 EUR.",
+      "feeHint": "\u00dcber Zinsen und Geb\u00fchren informieren auch der Preisaushang und das Preisverzeichnis in den Gesch\u00e4ftsstellen Ihres Kreditinstitutes."
+    }
+  }
+}

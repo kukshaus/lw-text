@@ -1,0 +1,6 @@
+<template id="blocks/legal-footer" version="1.0.0" data-sources="DATA" ai-editable="false">
+  <footer id="legal" class="muted" style="margin-top:24px;border-top:1px solid var(--color-border);padding-top:10px;font-size:8.5pt;line-height:1.4">
+    <p>{{ DATA.seller.name }} — VAT {{ DATA.seller.vatId }} — IBAN <span data-bind="DATA.seller.iban" format="iban"></span></p>
+    <p>This document was generated electronically and is valid without signature. Governed by the General Terms &amp; Conditions of {{ DATA.seller.name }}.</p>
+  </footer>
+</template>
